@@ -1,2 +1,1 @@
-No numbers found in file\n
-
+No numbers found in file
