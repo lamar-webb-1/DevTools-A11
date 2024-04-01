@@ -1,0 +1,24 @@
+name: Python Lowest Number Application Test
+on: [push]
+jobs:
+  python_lowest_number_application_test:
+    name: Python Test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Test 1 - Multiple Numbers
+      run: python find_lowest_number.py > test_data/test1_input.txt output1.txt 
+           diff output1.txt test_data/test1_expected.txt
+    - name: Test Case 1 - Multiple Numbers
+      run: python find_lowest_number.py test_data/test1_input.txt output1.txt && diff output1.txt test_data/test1_expected.txt
+    - name: Test Case 2 - Single Number
+      run: python find_lowest_number.py test_data/test2_input.txt output2.txt && diff output2.txt test_data/test2_expected.txt
+    - name: Test Case 3 - Empty Input File
+      run: python find_lowest_number.py test_data/test3_input.txt output3.txt && diff output3.txt test_data/test3_expected.txt
+      
+
+     
